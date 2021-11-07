@@ -1,4 +1,4 @@
 library(testthat)
-library(madtools)
+library(actionstest)
 
-test_check("madtools")
+test_check("actionstest")
