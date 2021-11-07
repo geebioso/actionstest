@@ -10,13 +10,13 @@ name: R
 
 on:
   push:
-    branches: [ master, develop]
+    branches: [master, develop]
   pull_request:
-    branches: [ master, develop ]
+    branches: [master, develop]
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: [macos-latest, ubuntu-latest]
     strategy:
       matrix:
         r-version: ['3.6.3', '4.1.1']
