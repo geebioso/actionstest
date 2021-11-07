@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         r-version: ['3.6.3', '4.1.1']
-        os: [macos-latest]
+        os: [macos-latest, ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +28,11 @@ jobs:
         uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
         with:
           r-version: ${{ matrix.r-version }}
+      - name: Print runner os
+        run: echo ${{ matrix.os }}
+      - name: Install LibCurl
+        if: runner.os != 'ubuntu-latest'
+        run: sudo apt-get install libcurl4-openssl-dev
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
