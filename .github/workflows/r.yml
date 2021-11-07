@@ -31,7 +31,7 @@ jobs:
       - name: Print runner os
         run: echo ${{ matrix.os }}
       - name: Install LibCurl
-        if: runner.os != 'ubuntu-latest'
+        if: runner.os == 'ubuntu-latest'
         run: sudo apt-get install libcurl4-openssl-dev
       - name: Install dependencies
         run: |
